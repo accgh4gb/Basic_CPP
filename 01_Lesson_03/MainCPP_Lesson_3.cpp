@@ -28,7 +28,19 @@ int main()
 	dNumber = (dNumber <= 21) ? (dNumber - 21) : (dNumber - 21) * 2;
 	std::cout << dNumber << std::endl;	
 
+	//Описать трёхмерный целочисленный массив, размером
+	//3х3х3 и указатель на значения внутри массива и при помощи
+	//операции разыменования вывести на экран значение
+	//центральной ячейки получившегося куба [1][1][1]
 
+	int ar[3][3][3] = {};
+	int*ptr = &ar[1][1][1];
+	std::cout << "The value of ar[1][1][1] is " << *ptr << std::endl;
+	std::cout << "Please, enter the new value of ar[1][1][1]: ";
+	int iValue = 0;
+	std::cin >> iValue;
+	*ptr = iValue;
+	std::cout << "The new value of ar[1][1][1] is " << *ptr << std::endl;
 
 	return 0;
 }
