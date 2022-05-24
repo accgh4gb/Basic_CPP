@@ -65,9 +65,55 @@ int main()
 		}
 	}
 	std::cout << std::endl;
-	
-
 }
+
+
+{
+	//Написать программу, проверяющую,
+	//является ли некоторое число - простым. Простое число — это
+	//целое положительное число, которое делится без остатка
+	//только на единицу и себя само
+	
+	unsigned long long n;
+	std::cout << "Please, enter a number between 2 and 8'378'000: ";
+	std::cin >> n;
+	while(n < 2 || n > 8'378'000)
+	{
+		std::cout << "Sorry, but you entered a wrong value. Please, try again." << std::endl;
+		std::cin >> n;
+	}
+	bool arr[n + 1];
+	for(size_t i = 2; i < n + 1; i++)
+	{
+		arr[i] = true;
+	}
+	
+	int x = 2;
+	
+	while (x * x <= n)
+	{
+		if(arr[x])
+		{
+			for(size_t j = x * x; j <= n; j += x)
+			{
+				arr[j] = false;
+			}
+		}
+		x += 1;
+	}		
+	
+	if(arr[n] == true)
+	{
+		std::cout << "The number " << n << " is prime" << std::endl;
+	}
+	else
+	{
+		std::cout << "The number " << n << " is not prime" << std::endl;
+	}
+
+	std::cout << '\n';
+}
+
 
 	return 0;
 }
