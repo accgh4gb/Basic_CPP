@@ -122,9 +122,14 @@ int main()
 	//високосный. Вывести результаты работы программы в консоль.
 	
 	unsigned int iYear;
-	std::cout << "Please, enter a year: ";
+	std::cout << "Please, enter a year between 1 and 3000: ";
 	std::cin >> iYear;
 	
+	while(iYear < 1 || iYear > 3000)
+	{
+		std::cout << "Sorry, but you entered a wrong year. Please, try again." << std::endl;
+		std::cin >> iYear;
+	}
 	if (iYear % 4 != 0)
 	{
 		std::cout << "The year " << iYear << " is not leap" << std::endl;
