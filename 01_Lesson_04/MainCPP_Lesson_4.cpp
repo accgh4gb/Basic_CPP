@@ -74,46 +74,72 @@ int main()
 	//целое положительное число, которое делится без остатка
 	//только на единицу и себя само
 	
-	unsigned long long n;
+	unsigned long long lNumber;
 	std::cout << "Please, enter a number between 2 and 8'378'000: ";
-	std::cin >> n;
-	while(n < 2 || n > 8'378'000)
+	std::cin >> lNumber;
+	while(lNumber < 2 || lNumber > 8'378'000)
 	{
 		std::cout << "Sorry, but you entered a wrong value. Please, try again." << std::endl;
-		std::cin >> n;
+		std::cin >> lNumber;
 	}
-	bool arr[n + 1];
-	for(size_t i = 2; i < n + 1; i++)
+	bool bArray[lNumber + 1];
+	for(size_t i = 2; i < lNumber + 1; i++)
 	{
-		arr[i] = true;
+		bArray[i] = true;
 	}
 	
-	int x = 2;
+	int iTheFirstPrime = 2;
 	
-	while (x * x <= n)
+	while (iTheFirstPrime * iTheFirstPrime <= lNumber)
 	{
-		if(arr[x])
+		if(bArray[iTheFirstPrime])
 		{
-			for(size_t j = x * x; j <= n; j += x)
+			for(size_t j = iTheFirstPrime * iTheFirstPrime; j <= lNumber; j += iTheFirstPrime)
 			{
-				arr[j] = false;
+				bArray[j] = false;
 			}
 		}
-		x += 1;
+		iTheFirstPrime += 1;
 	}		
 	
-	if(arr[n] == true)
+	if(bArray[lNumber] == true)
 	{
-		std::cout << "The number " << n << " is prime" << std::endl;
+		std::cout << "The number " << lNumber << " is prime" << std::endl;
 	}
 	else
 	{
-		std::cout << "The number " << n << " is not prime" << std::endl;
+		std::cout << "The number " << lNumber << " is not prime" << std::endl;
 	}
 
 	std::cout << '\n';
 }
 
+{
+	//Пользователь вводит с клавиатуры число
+	//(год): от 1 до 3000. Написать программу, которая определяет
+	//является ли этот год високосным. Каждый 4-й год является
+	//високосным, кроме каждого 100-го, при этом каждый 400-й –
+	//високосный. Вывести результаты работы программы в консоль.
+	
+	unsigned int iYear;
+	std::cout << "Please, enter a year: ";
+	std::cin >> iYear;
+	
+	if (iYear % 4 != 0)
+	{
+		std::cout << "The year " << iYear << " is not leap" << std::endl;
+	}
+	else if (iYear % 100 == 0 && iYear % 400 != 0)
+	{
+		std::cout << "The year " << iYear << " is not leap" << std::endl;
+	}
+	else
+	{
+		std::cout << "The year " << iYear << " is leap" << std::endl;
+	}
+	
+
+}
 
 	return 0;
 }
