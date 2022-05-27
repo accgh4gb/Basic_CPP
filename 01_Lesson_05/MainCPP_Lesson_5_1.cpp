@@ -1,5 +1,9 @@
 #include <iostream>
 
+//Написать функцию которая выводит массив double чисел
+//на экран. Параметры функции это сам массив и его размер.
+//Вызвать эту функцию из main.
+
 void PrintArray(double *dArray, unsigned int N)
 {
     for(size_t i = 0; i < N; i++)
