@@ -22,6 +22,7 @@ void MoveValues(int *iArray, const size_t arrSize, int iValue)
     if(iValue < 0)
     {
         iValue = -iValue;
+        iValue = iValue % arrSize;
     }
     else
     {
