@@ -6,7 +6,7 @@
 //или отрицательным), при этом метод должен циклически
 //сместить все элементы массива на n позиций.
 
-void PrintArray(int* arr, int arrSize)
+void PrintArray(const int* arr, const int arrSize)
 {
     for (size_t i = 0; i < arrSize; i++)
     {
@@ -57,7 +57,7 @@ int main()
     
     PrintArray(iArray, arrSize);
     
-    int N;
+    int N = 0;
     std::cout << "Hello, dear user!" << std::endl;
     std::cout << "Please, enter the value: " << std::endl;
     std::cin >> N;

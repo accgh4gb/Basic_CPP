@@ -5,7 +5,7 @@
 //заменяющую в принятом массиве 0 на 1, 1 на 0. Выводить
 //на экран массив до изменений и после.
 
-void PrintArray(int* arr, int arrSize)
+void PrintArray(const int* arr, const int arrSize)
 {
     for (size_t i = 0; i < arrSize; i++)
     {

@@ -9,21 +9,33 @@
 //показана символами ||, эти символы в массив не входят.
 
 
-void PrintArray(int* arr, int arrSize)
+void PrintArray(const int* arr, const int arrSize)
 {
     for (size_t i = 0; i < arrSize; i++)
     {
         std::cout << arr[i] << " ";
-    
     }
     std::cout << std::endl;
 }
- 
-void CheckBalance(int *iArray, const size_t arrSize)
+
+void IsTrue(const bool bFlag)
+{
+    if(bFlag)
+    {
+        std::cout << "Balance is true!" << std::endl;
+    }
+    else
+    {    
+    std::cout << "The balance is false" << std::endl;
+    }
+}
+
+void CheckBalance(const int *iArray, const size_t arrSize)
 {
     bool bFlag = false;
     int iSum1 = 0;
     int iSum2 = 0;
+    
     for(size_t j = 0; j < arrSize - 1; j++)
     {
         iSum1 += iArray[j];
@@ -38,22 +50,15 @@ void CheckBalance(int *iArray, const size_t arrSize)
             bFlag = true;
             break;
         }
-    } 
-    if(bFlag)
-    {
-        std::cout << "Balance is true!" << std::endl;
     }
-    else
-    {    
-    std::cout << "The balance is false" << std::endl;
-    }
+
+    IsTrue(bFlag); 
 }
 
   
 int main()
 {
-    
-    int iArray[5] = {22, -4, 4, 3, -1};
+    int iArray[5] = {2, -41, 4, 3, -1};
     
     const size_t arrSize = sizeof(iArray) / sizeof(*iArray);
     

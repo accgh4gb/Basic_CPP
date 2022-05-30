@@ -4,7 +4,7 @@
 //Написать функцию, которая с помощью цикла заполнит его
 //значениями 1 4 7 10 13 16 19 22. Вывести массив на экр
 
-void PrintArray(int* arr, int arrSize)
+void PrintArray(const int* arr, const int arrSize)
 {
     for (size_t i = 0; i < arrSize; i++)
     {
