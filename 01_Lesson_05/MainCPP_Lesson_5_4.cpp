@@ -17,7 +17,8 @@ void PrintArray(int* arr, int arrSize)
 }
  
 void MoveValues(int *iArray, const size_t arrSize, int iValue)
-{ 
+{
+ 
     if(iValue < 0)
     {
         iValue = -iValue;
@@ -59,7 +60,15 @@ int main()
     std::cout << "Hello, dear user!" << std::endl;
     std::cout << "Please, enter the value: " << std::endl;
     std::cin >> N;
-
-    MoveValues(iArray, arrSize, N);
+    
+    if(arrSize == 0)
+    {
+        std::cout << "The array is empty!" << std::endl;
+    }
+    else
+    {
+        MoveValues(iArray, arrSize, N);
+    }
+    
     return 0;
 }
