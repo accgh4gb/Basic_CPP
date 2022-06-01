@@ -13,39 +13,43 @@ void vInvite(size_t &iArraySize)
     std::cin >> iArraySize;
 }
 
-void vCreateDynamicArray(int *pArray, size_t &iArraySize)
+void ArrayInitialization(int* pArray, size_t iArraySize)
 {
-    vInvite(iArraySize);
-
-    if(iArraySize <= 0)
+    for (size_t i = 0; i < iArraySize; ++i)
     {
-        throw "Wrong value";
-    }
-    else
-    {
-        pArray = new int [iArraySize];
-    }
+        pArray[i] = 1 << i;
+    }    
 }
+
+void PrintArray(int* pArray, size_t iArraySize)
+{
+    for (size_t i = 0; i < iArraySize; ++i)
+    {
+        std::cout << pArray[i] << " ";
+    } 
+    std::cout << std::endl;
+}
+
 
 
 int main()
 {
     int * pArray;
     size_t iArraySize = 0;
+    vInvite(iArraySize);   
     
-    vCreateDynamicArray(pArray, iArraySize);   
-    
-    for (size_t i = 0; i < iArraySize; ++i)
+    if(static_cast<int>(iArraySize) <= 0)
     {
-        pArray[i] = 1 << i;
+        throw;
     }
-
-    for (size_t i = 0; i < iArraySize; ++i)
+    else
     {
-        std::cout << pArray[i] << " ";
-    } 
-    std::cout << std::endl; 
-    
+        pArray = new int [iArraySize];
+    }
+   
+    ArrayInitialization(pArray, iArraySize);
+    PrintArray(pArray, iArraySize);    
+
     delete[] pArray;
     pArray = nullptr; 
     return 0;
