@@ -40,7 +40,6 @@ int main()
  
     File1.close();
  
-    std::cout << "Hello, dear user!" << std::endl;
     std::cout << "Please, enter the name of the first file" << std::endl;
     sFileName = "";
     std::cin >> sFileName;
