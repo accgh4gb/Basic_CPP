@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <cstring>
 #include <string>
 
 //Написать функцию, «склеивающую» файлы, полученные
@@ -12,24 +11,33 @@
 int main()
 {
     std::ifstream ReadFile1;
-    ReadFile1.open("first.txt");
-    std::ifstream ReadFile2;
-    ReadFile2.open("second.txt");
-    std::ofstream WriteFile;
     std::cout << "Hello, dear user!" << std::endl;
     std::cout << "Please, enter the name of the first file" << std::endl;
-    std::string sFileName = "";
-    std::cin >> sFileName;
-    sFileName = sFileName + ".txt";
-    WriteFile.open(sFileName);
+    std::string sFileName1 = "";
+    std::cin >> sFileName1;
+    
+    ReadFile1.open(sFileName1 + ".txt");
+    
+    std::ifstream ReadFile2;
+    std::cout << "Please, enter the name of the second file" << std::endl;
+    std::string sFileName2 = "";
+    std::cin >> sFileName2;
+    ReadFile2.open(sFileName2 + ".txt");
+
+    std::ofstream WriteFile;
+    std::cout << "Please, enter the name for source file" << std::endl;
+    std::string sFileNameSource = "";
+    std::cin >> sFileNameSource;
+    WriteFile.open(sFileNameSource + ".txt");
     std::string sBuffer;
     if (ReadFile1.is_open())
     {
         while (!ReadFile1.eof())
         {
             getline(ReadFile1, sBuffer);
-            WriteFile.write(&sBuffer[0], strlen(&sBuffer[0]));
-            WriteFile.put(' ');
+            //WriteFile.write(&sBuffer[0], strlen(&sBuffer[0]));
+            //WriteFile.put(' ');
+             WriteFile << sBuffer << std::endl;
         
         }
         ReadFile1.close();
@@ -46,8 +54,8 @@ int main()
         while (!ReadFile2.eof())
         {
             getline(ReadFile2, sBuffer);
-            WriteFile.write(&sBuffer[0], strlen(&sBuffer[0]));
-        
+            //WriteFile.write(&sBuffer[0], strlen(&sBuffer[0]));
+             WriteFile << sBuffer << std::endl;
         }
         ReadFile2.close();
     
