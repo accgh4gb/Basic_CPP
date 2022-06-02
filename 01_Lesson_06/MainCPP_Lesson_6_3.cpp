@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <cstring>
 
 
 //Написать программу, которая создаст два текстовых
@@ -8,36 +8,65 @@
 //(особого значения не имеет с каким именно содержимым).
 //Имена файлов запросить у польлзователя.
 
-
-
+ 
 int main()
 {
-    std::string sFileName; // Имя файлов
-    std::cout << "Enter the name of the first file: ";
+    std::cout << "Hello, dear user!" << std::endl;
+    std::cout << "Please, enter the name of the first file" << std::endl;
+    std::string sFileName = "";
     std::cin >> sFileName;
-    std::cout << std::endl;
-    std::ofstream fout1;
-    fout1.open(sFileName);
-    
-    if (fout1.is_open())
+    sFileName = sFileName + ".txt";
+ 
+    const char* sText1 = "Given an array of integers fnums "
+        "and an integer target, return indices of the two numbers "
+        "such that they add up to target. You may assume that each "
+        "input would have exactly one solution, and you may not use "
+        "the same element twice. You can return the answer in any order.";
+ 
+ 
+ 
+    std::ofstream File1;
+    File1.open(sFileName);
+    if (File1.is_open())
     {
-        fout1 << "Выделить в памяти динамический одномерный массив типа int. Размер массива запросить у пользователя. Инициализировать его числами степенями двойки: 1, 2, 4, 8, 16, 32, 64, 128 ... Вывести массив на экран. Не забыть освободить память. =) Разбить программу на функции." << std::endl;
-    fout1.close();
+        File1.write(sText1, strlen(sText1));
+    
     }
-
-    std::cout << "Enter the name of the second file: ";
+    else
+    {
+        std::cout << "Could not open the file " << sFileName << "." << std::endl;
+    
+    }
+ 
+    File1.close();
+ 
+    std::cout << "Hello, dear user!" << std::endl;
+    std::cout << "Please, enter the name of the first file" << std::endl;
+    sFileName = "";
     std::cin >> sFileName;
-    std::cout << std::endl;
-    std::ofstream fout2;
-    fout2.open(sFileName);
-    
-    if (fout2.is_open())
+    sFileName = sFileName + ".txt";
+ 
+    const char* sText2 = "You are given two non - empty linked lists "
+        "representing two non - negative integers.The "
+        "digits are stored in reverse order, and each of "
+        "their nodes contains a single digit.Add the two "
+        "numbersand return the sum as a linked list.";
+ 
+    std::ofstream File2;
+    File2.open(sFileName);
+    if (File2.is_open())
     {
-        fout2 << "Динамически выделить матрицу 4х4 типа int." <<
- "Инициализировать ее псевдослучайными числами через" << "функцию rand. Вывести на экран. Разбейте вашу" <<
-"программу на функции которые вызываются из main" << std::endl;
-    fout2.close();
+        File2.write(sText2, strlen(sText2));
+    
     }
-            
+    else
+    {
+        std::cout << "Could not open the file " << sFileName << "." << std::endl;
+    
+    }
+ 
+    File2.close();
+ 
     return 0;
+
 }
