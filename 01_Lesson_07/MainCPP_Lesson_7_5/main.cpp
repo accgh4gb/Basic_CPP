@@ -14,13 +14,12 @@
 int main()
 {
     std::cout << "Hello, dear user!" << std::endl;
-    const size_t uiArraySize = 31;
     float fArray[uiArraySize] = {};
 
-    PrintArray(fArray, uiArraySize);
-    InitializeArray(fArray, uiArraySize);
-    PrintArray(fArray, uiArraySize);
-    ArrayValuesCount(fArray, uiArraySize);
+    MyNS::PrintArray(fArray, uiArraySize);
+    MyNS::InitializeArray(fArray, uiArraySize);
+    MyNS::PrintArray(fArray, uiArraySize);
+    MyNS::ArrayValuesCount(fArray, uiArraySize);
 
     return 0;
 }

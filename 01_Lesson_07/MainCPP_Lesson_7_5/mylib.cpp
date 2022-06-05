@@ -1,36 +1,39 @@
 #include "mylib.h"
 #include <ctime>
 
-void InitializeArray(float* fArray, const size_t size)
+namespace MyNS
 {
-    srand(time(0)); // автоматическая рандомизация
-    for (size_t i = 0; i < size; ++i)
+    void InitializeArray(float* fArray, const size_t size)
     {
-        fArray[i] = -100 + rand() % ((100 + 1) - (-100));
-    }
-}
-
-
-void ArrayValuesCount(const float* fArray, const size_t size)
-{
-    size_t NegValue = 0; // автоматическая рандомизация
-
-    for (size_t i = 0; i < size; ++i)
-    {
-        if (fArray[i] <= 0)
+        srand(time(0)); // автоматическая рандомизация
+        for (size_t i = 0; i < size; ++i)
         {
-            NegValue++;
+            fArray[i] = -100 + rand() % ((100 + 1) - (-100));
         }
     }
 
-    std::cout << "The array has " << size - NegValue << " positive values and " << NegValue << " negative values" << std::endl;
-}
 
-void PrintArray(const float* fArray, const size_t size)
-{
-    for (size_t i = 0; i < size; ++i)
+    void ArrayValuesCount(const float* fArray, const size_t size)
     {
-        std::cout << fArray[i] << " "; 
+        size_t NegValue = 0; // автоматическая рандомизация
+
+        for (size_t i = 0; i < size; ++i)
+        {
+            if (fArray[i] <= 0)
+            {
+                NegValue++;
+            }
+        }
+
+        std::cout << "The array has " << size - NegValue << " positive values and " << NegValue << " negative values" << std::endl;
     }
-    std::cout << std::endl;
-}
+
+    void PrintArray(const float* fArray, const size_t size)
+    {
+        for (size_t i = 0; i < size; ++i)
+        {
+            std::cout << fArray[i] << " "; 
+        }
+        std::cout << std::endl;
+    }
+};

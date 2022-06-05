@@ -2,7 +2,11 @@
 
 #include <iostream>
 
+const size_t uiArraySize = 31;
 
-void InitializeArray(float* fArray, const size_t size);
-void PrintArray(const float* fArray, const size_t size);
-void ArrayValuesCount(const float* fArray, const size_t size);
+namespace MyNS
+{
+    void InitializeArray(float* fArray, const size_t size);
+    void PrintArray(const float* fArray, const size_t size);
+    void ArrayValuesCount(const float* fArray, const size_t size);
+};
