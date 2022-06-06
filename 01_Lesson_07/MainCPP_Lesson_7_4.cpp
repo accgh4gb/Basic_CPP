@@ -56,14 +56,17 @@ int main(int argc, char* argv[])
 //=====================OUT_FILE==========================
 
     std::ofstream fout("Employee_data.txt");
-
-    fout << "The new employee" << std::endl;
-    fout << "The Name of the new employee is: " << pEmployee->FirstName << " " << pEmployee->SecondName << "." << std::endl;
-    fout << "The age of the new employee is: " << pEmployee->age << "." << std::endl;
-    fout << "The salary of the new employee is: " << pEmployee->salary << "." << std::endl;
-    fout << "Size of structure Employee is: " << sizeof(*pEmployee) << " bytes" << std::endl;
+    
+    if (fout.is_open()) 
+    {
+        fout << "The new employee" << std::endl;
+        fout << "The Name of the new employee is: " << pEmployee->FirstName << " " << pEmployee->SecondName << "." << std::endl;
+        fout << "The age of the new employee is: " << pEmployee->age << "." << std::endl;
+        fout << "The salary of the new employee is: " << pEmployee->salary << "." << std::endl;
+        fout << "Size of structure Employee is: " << sizeof(*pEmployee) << " bytes" << std::endl;
 
     fout.close();
+    }
 
 //=====================BINARY_OUT_FILE====================    
 
