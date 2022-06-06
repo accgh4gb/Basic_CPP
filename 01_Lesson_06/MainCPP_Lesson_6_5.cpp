@@ -11,29 +11,30 @@
  
 int main()
 {
-    std::ifstream ReadFile1;
+    std::ifstream ReadFile;
     std::cout << "Hello, dear user!" << std::endl;
     std::cout << "Please, enter the name of the file in which the word will be searched" << std::endl;
     std::string sFileName;
     std::cin >> sFileName;
-    ReadFile1.open(sFileName + ".txt");
+    ReadFile.open(sFileName + ".txt");
     std::cout << "Please, enter a word for searching" << std::endl;
     std::string sKeyWord = "";
     std::cin >> sKeyWord;
     std::string sBuffer;
     
-    if (ReadFile1.is_open())
+    if (ReadFile.is_open())
     {
         bool IsFind = false;
         
-        while (!ReadFile1.eof())
+        while (!ReadFile.eof())
         {
-            getline(ReadFile1, sBuffer);
+            getline(ReadFile, sBuffer);
             
             if (sBuffer.find(sKeyWord) != std::string::npos)
             {
                 IsFind = true;
                 break;
+                ReadFile.close();
             }
         }
         
@@ -53,7 +54,6 @@ int main()
     
     }
  
-    ReadFile1.close();
  
     system("pause");
     
