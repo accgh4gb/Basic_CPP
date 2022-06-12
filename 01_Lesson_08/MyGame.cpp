@@ -5,7 +5,8 @@
 //#include <chrono>
 #include "MyGamePlay.h"
 #include "MyGamePlayData.h"
-//#define msleep(msec) usleep(msec*1000)
+#include <curses.h>
+#define msleep(msec) usleep(msec*1000)
 
 
 int main()
@@ -13,41 +14,53 @@ int main()
     initscr();
     nodelay(stdscr, false);
     TGame g;
-    initGame(g);
+//    initGame(g);
+    refresh();    
     
+    char iCommand = '\0';
     do
     {
-        GamePlay(g);
-/*        clearScr();
-        drawGame(g);
-    
-        if (g.turn % 2 == 0)
+        printw("Press 'N/n' for new game \n");
+        printw("\nPress 'ESC/q/e' for exit");
+        iCommand = getch();
+        refresh();
+        switch (iCommand)
         {
-            TCoord c = getHumanCoord(g);
-            g.ppField[c.y][c.x] = g.human;    
+            case 'N':
+            case 'n':
+            {    
+                initGame(g);
+    
+                do
+                {
+                    GamePlay(g);
+                } 
+    
+                while (g.progress == IN_PROGRESS);
+
+                deinitGame(g);    
+                congrats(g);
+                refresh();
+                break; 
+            }
+        
+            case 27:
+            case 'q':
+            case 'e':
+            {   
+                printw("\nBye, bye!\nSee you next time.\n");
+                refresh();
+		        msleep(3000);
+                break;
+            }
+            default:
+                printw("TiCTacToe");
+                break;
         }
-        else
-        {
-            TCoord c = getAICoord(g);
-            g.ppField[c.y][c.x] = g.ai;    
-        }
-    
-        g.turn++;
-    
-        g.progress = getWon(g);    
-        refresh(); 
- */
-    } 
-    
-    while (g.progress == IN_PROGRESS);
+    }
+    while (iCommand != 27);
 
-    congrats(g);
-
-    deinitGame(g);    
-
-    getch();
-
-//    refresh();
+    refresh();
     
     endwin();
 

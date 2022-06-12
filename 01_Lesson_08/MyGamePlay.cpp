@@ -344,17 +344,17 @@ void congrats(const TGame& g)
 {
     if (g.progress == WON_HUMAN)
     {
-        printw("\nWon human =)");
+        printw("\nWon human =)\n");
         refresh();
     }
     else if (g.progress == WON_AI)
     {
-        printw("\nWon computer =(");
+        printw("\nWon computer =(\n");
         refresh();
     }
     else
     {
-        printw("Draw =/");
+        printw("Draw =/\n");
         refresh();
     }
 }
