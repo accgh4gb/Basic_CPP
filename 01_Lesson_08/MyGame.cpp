@@ -54,7 +54,7 @@ int main()
                 break;
             }
             default:
-                printw("TiCTacToe");
+                printw("Please, try again.");
                 break;
         }
     }
